@@ -1,0 +1,16 @@
+apply plugin: 'java-library'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly "com.android.tools.lint:lint-api:26.3.1"
+    compileOnly "com.android.tools.lint:lint-checks:26.3.1"
+}
+
+jar {
+    manifest {
+        attributes 'Lint-Registry': 'com.vdreamers.vknife.lint.MyIssueRegistry'
+    }
+}
